@@ -288,4 +288,6 @@ mkdir -p ${UNIVERSAL_OUTDIR}/lib
 cp -r ${HOST_GENDIR}/include/ ${UNIVERSAL_OUTDIR}/include/
 cp ${LIBDIR}/*.a ${UNIVERSAL_OUTDIR}/lib
 
+cd ..
+
 tar -zcvf protobuf.tar.gz -C ${UNIVERSAL_OUTDIR} ./lib ./include
