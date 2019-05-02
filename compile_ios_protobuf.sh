@@ -279,3 +279,13 @@ done
 file ${LIBDIR}/libprotobuf.a
 file ${LIBDIR}/libprotobuf-lite.a
 echo "Done building and packaging the libraries"
+
+echo "Archiving built products"
+
+UNIVERSAL_OUTDIR="$(pwd)/gen/universal"
+mkdir -p ${UNIVERSAL_OUTDIR}/lib
+
+cp -r ${HOST_GENDIR}/include/ ${UNIVERSAL_OUTDIR}/include/
+cp ${LIBDIR}/*.a ${UNIVERSAL_OUTDIR}/lib
+
+tar -zcvf protobuf.tar.gz -C ${UNIVERSAL_OUTDIR} ./lib ./include
